@@ -1,4 +1,4 @@
-name: Deploy Student Task Manager
+﻿name: Student Task Manager CI/CD
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,23 +31,8 @@ jobs:
 
       - name: Terraform Init
         working-directory: terraform
-        run: terraform init
+        run: terraform init -backend=false
 
       - name: Terraform Validate
         working-directory: terraform
         run: terraform validate
-
-      - name: Terraform Plan
-        working-directory: terraform
-        run: terraform plan
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          TF_VAR_cloudflare_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-
-      - name: Terraform Apply
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        working-directory: terraform
-        run: terraform apply -auto-approve
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          TF_VAR_cloudflare_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
