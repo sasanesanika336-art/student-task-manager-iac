@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Task Manager</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Student Task Manager</h1>
+      <p>Organize your academic tasks in one place.</p>
+    </header>
+
+    <section class="card">
+      <h2>Add a Task</h2>
+      <form id="task-form">
+        <label for="title">Task Title</label>
+        <input id="title" name="title" type="text"
+               placeholder="e.g. Prepare project presentation" required>
+
+        <label for="priority">Priority</label>
+        <select id="priority" name="priority">
+          <option>High</option>
+          <option selected>Medium</option>
+          <option>Low</option>
+        </select>
+
+        <button type="submit">Add Task</button>
+      </form>
+      <p id="message" role="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>My Tasks</h2>
+      <div id="task-list" aria-live="polite">Loading tasks...</div>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
