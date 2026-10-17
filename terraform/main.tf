@@ -8,7 +8,7 @@ resource "cloudflare_workers_script" "student_task_manager" {
   script_name        = var.worker_name
   content            = file("${path.module}/../application/worker.js")
   main_module        = "worker.js"
-  compatibility_date = "2026-10-16"
+  compatibility_date = "2026-10-17"
 
   bindings = [
     {
