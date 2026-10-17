@@ -4,3 +4,36 @@
 terraform.tfvars
 *.tfplan
 .env
+
+# Terraform provider files and working directory
+.terraform/
+
+# Terraform state and backups
+*.tfstate
+*.tfstate.*
+
+# Terraform variable files (keep the example template)
+*.tfvars
+!*.tfvars.example
+
+# Terraform plan files
+*.tfplan
+
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform CLI configuration
+.terraformrc
+terraform.rc
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
