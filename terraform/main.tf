@@ -18,3 +18,10 @@ resource "cloudflare_workers_script" "student_task_manager" {
     }
   ]
 }
+
+resource "cloudflare_workers_script_subdomain" "student_task_manager" {
+  account_id       = var.cloudflare_account_id
+  script_name      = var.worker_name
+  enabled          = true
+  previews_enabled = false
+}
